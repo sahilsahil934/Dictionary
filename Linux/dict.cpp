@@ -154,9 +154,5 @@ bool unload(void)
     return false;
 }
 
-int main()
-{
-	load_dict();
-	unload();
-}
+
 
