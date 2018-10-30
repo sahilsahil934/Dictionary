@@ -1,25 +1,41 @@
 
 #ifndef DICT_H
 #define DICT_H
-
+// headerfiles used
 #include <iostream>
+#include <ctype.h>
+#include <string.h>
+#include <fstream>
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+#include <stdlib.h>
+
 using namespace std;
 
+//Defining structure
 typedef struct _word
 {
     struct _word *ch1[26];
     bool value;
-    char meaning[20];
+    char meaning[100];
 }
 word1;
 
+// function to load dictionary
 bool load_dict();
 
+//function which will print meaning
 void meaning(char*);
 
+// whether word exist or not in the dictionary
 bool exist(char*);
 
+// function tp unload dictionary
 bool unload(void);
 
-#endif
+//function to add new word
+bool addword();
 
+
+#endif
