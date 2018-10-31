@@ -7,8 +7,7 @@
 #include <string.h>
 #include <fstream>
 #include <stdio.h>
-#include <conio.h>
-#include <unisd.h>
+#include <unistd.h>
 #include <stdlib.h>
 
 using namespace std;
