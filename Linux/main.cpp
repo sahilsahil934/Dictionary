@@ -7,36 +7,30 @@ int main()
 {
 
 	// Loading words in the dictionary
-	
+
     load_dict();
-    cout<<"\n\t\t\t\t\t\t [";
-    for(int i = 0; i < 100; i++)
-    {
-    	cout<<"#";
-    	Sleep(40);
-	}
-	cout<<"]";
-   	cout<<"\n\n\n\n\n\n\n ***********************************************Loading Complete**************************************"; 
+   	cout<<"\n\n\n\n\n \t\t\t\t\t\t***********************************************Loading Complete**************************************";
 
     char word[30];
     char ch1 = 'y';
     int ch;
 	do
 	{
-		system("cls");
+	// 	sleep(3);
+		system("clear");
 		// Main menu
-		cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
+		cout<<"\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
 		cout<<"\n\t\t\t\t           							1. Search Meaning\n";
 		cout<<"\n\t\t\t\t          							2. Add word in dictionary\n";
 		cout<<"\n\t\t\t\t           							3. Exit\n";
 		cout<<"\n\t\t\t\t\t           							Enter choice : ";
-		
-		ch = getch() - 48;
+
+		cin>>ch;
 		switch(ch)
 		{
 			case 1:
 				{
-					system("cls");
+					system("clear");
 					cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
 					cout<<"\n\n\n\n\n\t\t\t           							Enter word : ";
     				cin>>word;
@@ -44,12 +38,13 @@ int main()
     				{
     		  			cout<<"\n\n\n\n\n\t\t\t\t 			Sorry! Word is not availble in the dictionary!";
     		  			cout<<"\n\t\t\t\t\t\t\t Press any key. And help us by adding this word in the dictionay";
-    		  			getch();
+								cin.ignore().get();
+
     				}
     				else
     				{
     					cout<<"\n\t\t\t\t           							Press any key : ";
-    					getch();
+
     		  			cout<<"\n\t\t\t\t           							word exist";
     				}
     				break;
@@ -64,10 +59,11 @@ int main()
     				else
     				{
     					cout<<"\n           							Word already exist\n";
-    					getch();
+							cin.ignore().get();
+
+						}
+						break;
 					}
-					break;
-				}
     		case 3:
     			{
     				exit(0);
