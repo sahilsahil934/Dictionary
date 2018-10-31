@@ -101,7 +101,8 @@ bool load_dict()
 void meaning(word1 *get, char *word)
 {
 	system("cls");
-	cout<<"\n\n\n\n\n\t\t\t           							"<<word<<" - "<<get->meaning;
+	cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
+	cout<<"\n\n\n\n\n\t           							"<<word<<" - "<<get->meaning;
 }
 
 bool exist(char *word)
@@ -156,7 +157,8 @@ bool addword()
 	do
 	{
 		system("cls");
-		cout<<"\n\n\n\n\n\n           							Enter word : ";
+		cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
+		cout<<"\n\n\n\n\n\n           							Enter new word : ";
 		cin>>word;
 		if (exist(word) != false)
 		{
