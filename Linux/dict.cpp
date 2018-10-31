@@ -8,7 +8,7 @@ int count = 0;
 
 word1* newnode()
 {
-	
+
     word1 *node = new word1;
     if (node == NULL)
     {
@@ -56,7 +56,7 @@ bool load_dict()
         //reading single charcter from file
         char ch;
         f.get(ch);
-
+				ch = tolower(ch);
         if (ch == '-')
         {
           goto abc;
@@ -92,7 +92,7 @@ bool load_dict()
 
     }
     f.close();
-	Sleep(500);
+	sleep(2);
    	cout<<"\n         							Total words loaded : "<<count;
     return true;
     return false;
@@ -100,14 +100,16 @@ bool load_dict()
 
 void meaning(word1 *get, char *word)
 {
-	system("cls");
+	system("clear");
 	cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
 	cout<<"\n\n\n\n\n\t           							"<<word<<" - "<<get->meaning;
+	cout<<"\n\n\n\t\t\t\t\t\t\t\t\t\t Press any key to return to main menu";
+	cin.ignore().get();
 }
 
 bool exist(char *word)
 {
-	
+
     char ch;
     word1* create = root;
     int num;
@@ -153,10 +155,10 @@ bool addword()
 		return false;
 	}
 	char word[30];
-	char meaning[50];
+	string meaning = "none";
 	do
 	{
-		system("cls");
+		system("clear");
 		cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
 		cout<<"\n\n\n\n\n\n           							Enter new word : ";
 		cin>>word;
@@ -166,7 +168,11 @@ bool addword()
 		}
 		cout<<"\n           							Enter meaning : ";
 		cin.ignore();
-		gets(meaning);
+		getline(cin, meaning);
+		if (meaning == "none")
+		{
+			return false;
+		}
 		f<<word;
 		f<<"- ";
 		f<<meaning;
@@ -174,7 +180,7 @@ bool addword()
 		cout<<"\n           							Do you want to add another word(Y/N) : ";
 		cin>>ch;
 	}
-	while (ch == 'y' || ch == 'Y');	
+	while (ch == 'y' || ch == 'Y');
 	f.close();
 	return true;
 }
@@ -186,4 +192,3 @@ bool unload(void)
     return true;
     return false;
 }
-
