@@ -1,8 +1,3 @@
-#include <iostream>
-#include <ctype.h>
-#include <string.h>
-#include <fstream>
-#include <unistd.h>
 
 using namespace std;
 
@@ -45,7 +40,7 @@ void del(word1 *rem)
 
 bool load_dict()
 {
-	cout<<"\n        **************************************Loading word in Dictionary**********************************************";
+	cout<<"\n\n\n\n\n\n\n\n\t\t\t\t\t\t ********************************************Loading word in Dictionary**********************************************";
     int num;
     word1 *create;
     root = newnode();
@@ -97,20 +92,22 @@ bool load_dict()
 
     }
     f.close();
-  
-   	cout<<"\n ***********************************************Loading Complete**************************************"; 
-   	cout<<"\n Total words loaded : "<<count;
+	Sleep(500);
+   	cout<<"\n         							Total words loaded : "<<count;
     return true;
     return false;
 }
 
 void meaning(word1 *get, char *word)
 {
-	cout<<word<<" - "<<get->meaning;
+	system("cls");
+	cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
+	cout<<"\n\n\n\n\n\t           							"<<word<<" - "<<get->meaning;
 }
 
 bool exist(char *word)
 {
+	
     char ch;
     word1* create = root;
     int num;
@@ -146,13 +143,47 @@ bool exist(char *word)
     return false;
 }
 
+bool addword()
+{
+	char ch;
+	fstream f;
+	f.open("read.txt",ios::app);
+	if (!f)
+	{
+		return false;
+	}
+	char word[30];
+	char meaning[50];
+	do
+	{
+		system("cls");
+		cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
+		cout<<"\n\n\n\n\n\n           							Enter new word : ";
+		cin>>word;
+		if (exist(word) != false)
+		{
+			return false;
+		}
+		cout<<"\n           							Enter meaning : ";
+		cin.ignore();
+		gets(meaning);
+		f<<word;
+		f<<"- ";
+		f<<meaning;
+		f<<"\n";
+		cout<<"\n           							Do you want to add another word(Y/N) : ";
+		cin>>ch;
+	}
+	while (ch == 'y' || ch == 'Y');	
+	f.close();
+	return true;
+}
+
 bool unload(void)
 {
-	cout<<"\n 			*****************************Dictionary Unloading****************************\n\n";
+	cout<<"\n *****************************Dictionary Unloading****************************";
     del(root);
     return true;
     return false;
 }
-
-
 
