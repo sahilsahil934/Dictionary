@@ -37,6 +37,7 @@ int main()
 			case 1:
 				{
 					system("cls");
+					cout<<"\n\n\n\n\n\t\t\t			************************************************Dictionary*****************************************\n";
 					cout<<"\n\n\n\n\n\t\t\t           							Enter word : ";
     				cin>>word;
 					if (exist(word) == false)
